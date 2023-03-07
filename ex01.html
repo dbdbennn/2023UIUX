@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강아지</title>
+</head>
+
+<body>
+    <p id="soundslike">
+
+    </p>
+    <script>
+        var walksLike = "duck";
+        // var walksLike = "dog";
+        // var walksLike = "sleepdog";
+
+        var soundsLike = document.getElementById("soundslike");
+        // document : 해당 페이지
+        // .getElementById(id명) : 태그에 있는 id 속성을 사용하며 해당 태그에 접근
+        // 반환값 : 주어진 id와 일치하는 dom 요소를 나타내는 Element 객체를 반환
+        //          만약 주어진 id와 일치하는 dom 요소가 없으면 null을 반환
+
+        if (walksLike == "dog") {
+            soundsLike.innerHTML = "멍! 멍!";
+            // 해당 요소의 HTML 값을 변경할 수 있음.
+        } else if (walksLike == "duck") {
+            soundsLike.innerHTML = "꽥, 꽥"
+        } else {
+            soundsLike.innerHTML = "조용~";
+        }
+    </script>
+</body>
+
+</html>
