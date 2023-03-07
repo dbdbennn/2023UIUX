@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let coins = parseInt(Math.random() * 10);
+        let cans = parseInt(Math.random() * 10);
+        alert("생성된 코인 갯수 : " + coins);
+        alert("생성된 캔 갯수 : " + cans);
+
+        let icoins = coins;
+        let icans = cans;
+        if (cans == 0 || coins == 0) {
+            alert("코인 또는 캔 부족");
+        }
+        else if (coins >= cans) {
+            for (let i = 0; i < icans; i++) {
+                coins--;
+                cans--;
+                alert("코인 갯수 : " + coins);
+                alert("캔 갯수 : " + cans);
+            }
+        } else {
+            for (let i = 0; i < icoins; i++) {
+                cans--;
+                coins--;
+                alert("코인 갯수 : " + coins);
+                alert("캔 갯수 : " + cans);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
