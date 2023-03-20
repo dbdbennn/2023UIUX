@@ -10,6 +10,7 @@ function init() {
     button1.onclick = function(e) {
         removeAll();
     };
+    loadPlayList();
 }
 
 function handleAddButtonClick(e) {
@@ -23,10 +24,7 @@ function handleAddButtonClick(e) {
         playlistArray.push(songName);
         localStorage.setItem("playlist", JSON.stringify(playlistArray));
 
-        let ul = document.getElementById("playlist");
-        let li = document.createElement("li");
-        li.innerHTML = songName;
-        ul.appendChild(li);
+        addSongList([songName]); // 함수 변경
     }
 }
 
@@ -43,11 +41,14 @@ function getStoreArray(key) {
 
 function loadPlayList() {
     let playlistArray = getStoreArray("playlist");
-    
+    addSongList(playlistArray);
+}
+
+function addSongList(songList) {
     let ul = document.getElementById("playlist");
-    for (let i = 0; i < playlistArray.length; i++) {
+    for (let i = 0; i < songList.length; i++) {
         let li = document.createElement("li");
-        li.innerHTML = playlistArray[i];
+        li.innerHTML = songList[i];
         ul.appendChild(li);
     }
 }
