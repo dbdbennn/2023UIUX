@@ -3,18 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>지도 타입 바꾸기1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+    crossorigin="anonymous">
     
 </head>
 <body>
 <div id="map" style="width:100%;height:350px;"></div>
 <p>
-<button onclick="setOverlayMapTypeId('traffic')">교통정보 보기</button> 
-<button onclick="setOverlayMapTypeId('roadview')">로드뷰 도로정보 보기</button> 
-<button onclick="setOverlayMapTypeId('terrain')">지형정보 보기</button>
-<button onclick="setOverlayMapTypeId('use_district')">지적편집도 보기</button>
+<button class="btn btn-outline-primary" onclick="setOverlayMapTypeId('traffic')">교통정보 보기</button> 
+<button class="btn btn-outline-secondary" onclick="setOverlayMapTypeId('roadview')">로드뷰 도로정보 보기</button> 
+<button class="btn btn-outline-success" onclick="setOverlayMapTypeId('terrain')">지형정보 보기</button>
+<button class="btn btn-outline-danger" onclick="setOverlayMapTypeId('use_district')">지적편집도 보기</button>
 
-<button onclick="setDraggable(false)">지도 드래그 이동 끄기</button>
-<button onclick="setDraggable(true)">지도 드래그 이동 켜기</button>
+<button class="btn btn-outline-warning" onclick="setDraggable(false)">지도 드래그 이동 끄기</button>
+<button class="btn btn-outline-dark" onclick="setDraggable(true)">지도 드래그 이동 켜기</button>
 
 </p> 
 
@@ -82,6 +84,9 @@ function setDraggable(draggable) {
     // 마우스 드래그로 지도 이동 가능여부를 설정합니다
     map.setDraggable(draggable);    
 }
+
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
+    crossorigin="anonymous"></script>
 </body>
 </html>
