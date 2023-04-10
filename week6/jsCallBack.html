@@ -1,0 +1,15 @@
+<script>
+    function printABC() {
+        console.log("ABC");
+    }
+    function printDEF() {
+        console.log("DEF");
+    }
+    function func_callback(func1, func2) {
+        func1();
+        func2();
+    }
+
+    // 콜백 함수 호출 ()없음
+    func_callback(printABC, printDEF)
+</script>
