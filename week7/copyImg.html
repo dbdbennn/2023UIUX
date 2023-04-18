@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 복사</title>
+    <style type="text/css">
+        .imgCont {
+            text-align: center;
+        }
+        .imgCont img {
+            height: 300px;
+            padding: 3px;
+            position: relative;
+            cursor: pointer;
+            z-index: 999;
+        }
+    </style>
+     <script 
+        src="https://code.jquery.com/jquery-3.6.4.min.js" 
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
+        crossorigin="anonymous">
+ </script>
+</head>
+<body>
+    <div class="imgCont">
+        <img onclick="imgContCopy(this)" src="./imgs/banana-removebg-preview.png"/>
+        <img onclick="imgContCopy(this)" src="./imgs/catdog-removebg-preview.png"/>
+        <img onclick="imgContCopy(this)" src="./imgs/jumping_cat-removebg-preview.png"/>
+        <img onclick="imgContCopy(this)" src="./imgs/pow-removebg-preview.png"/>
+        <img onclick="imgContCopy(this)" src="./imgs/roblox_pig-removebg-preview.png"/>
+
+        <script>
+            function imgContCopy(imgCont_o) {
+                var pos = $(imgCont_o).offset(); // 이미지의 위치 알아내기
+                var rnd1 = Math.round(Math.random() * 900 - 850);
+                var rnd2 = Math.round(Math.random() * 900 - 450);
+                
+                var move_top = pos.top - rnd1;
+                var move_left = pos.left - rnd2;
+
+                $(imgCont_o)
+                    .clone() // 복제
+                    .appendTo(".imgCont")
+                    .css({top:pos.top, left:pos.left,position:"absolute"})
+                    .animate({top:move_top, left:move_left},1000,function(){ // 위치 이동 애니메이션
+                        let img = this;
+                        setTimeout(function() {
+                            $(img).remove();
+                        },3000) // 3초 뒤 제거
+                    })
+            }
+        </script>
+    </div>
+</body>
+</html>
