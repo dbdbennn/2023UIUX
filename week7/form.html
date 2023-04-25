@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form 예제</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // window.onload
+        $(document).ready(function() {
+            // 폼 제출 시 값 가져올 수 있도록
+            $("form").submit(function(e) {
+                e.preventDefault();
+
+                let username = $("#username").val();
+                let email = $("#email").val();
+                let password = $("#password").val();
+                let confirmPassword = $("#confirm-password").val();
+                let gender = $("#gender").val();
+
+                let hobbies = [];
+                $("input[name='hobbies']:checked").each(function() {
+                    hobbies.push($(this).val());
+                });
+
+                let region = $("region").val();
+                let agree = $("agree").prop("checked");
+
+                let joinData = {
+                    username : username,
+                    email : email,
+                    password : password,
+                    confirmPassword : confirmPassword,
+                    gender : gender,
+                    hobbies : hobbies,
+                    region : region,
+                    agree : agree
+                };
+
+                console.log(joinData);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h1>회원 가입</h1>
+    <form action="/register" method="post">
+        <label for="username">사용자명:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="confirm-password">비밀번호 확인:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <br>
+        <label for="gender">성별:</label>
+        <select id="gender" name="gender">
+            <option value="male">남성</option>
+            <option value="female" selected>여성</option>
+            <option value="other">기타</option>
+        </select>
+        <br>
+        <label for="hobbies">취미:</label>
+        <input type="checkbox" id="hobby1" name="hobbies" value="hobby1">
+        <label for="hobby1">취미1</label>
+        <input type="checkbox" id="hobby2" name="hobbies" value="hobby2">
+        <label for="hobby2">취미2</label>
+        <input type="checkbox" id="hobby3" name="hobbies" value="hobby3">
+        <label for="hobby3">취미3</label>
+        <br>
+        <label for="region">지역:</label>
+        <select id="region" name="region">
+            <option value="seoul">서울</option>
+            <option value="busan">부산</option>
+            <option value="incheon">인천</option>
+            <option value="daegu">대구</option>
+            <option value="gwangju">광주</option>
+            <option value="daejeon">대전</option>
+            <option value="ulsan">울산</option>
+            <option value="sejong">세종</option>
+            <option value="gyeonggi">경기도</option>
+            <option value="gangwon">강원도</option>
+            <option value="chungcheong">충청도</option>
+            <option value="jeolla">전라도</option>
+            <option value="gyeongsang">경상도</option>
+            <option value="jeju">제주도</option>
+        </select>
+        <br>
+        <label for="agree">약관 동의:</label>
+        <input type="checkbox" id="agree" name="agree" required>
+        <br>
+        <input type="submit" value="가입하기">
+    </form>
+
+</body>
+
+</html>
