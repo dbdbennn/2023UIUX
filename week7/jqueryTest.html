@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $(".displaySlide div").slideUp();
+            $(".displaySlide p").on('click', function(e) {
+                $(this).next().slideToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="displaySlide">
+        <p>1. 하이큐를 본다</p>
+        <div>켄마샘시인팁</div>
+    </div>
+
+    <div class="displaySlide">
+        <p>2. 진격의 거인을 본다</p>
+        <div>에렌샘시거인</div>
+    </div>
+
+    <div class="displaySlide">
+        <p>3. 슬램덩크를 본다</p>
+        <div>백호의소연사랑</div>
+    </div>
+</body>
+</html>
