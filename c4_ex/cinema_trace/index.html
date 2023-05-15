@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>웹마을 시네마</title>
+		<meta charset="utf-8">
+		<script>
+			window.onload = function() {
+				document.write("1"+"<br>");
+			
+				var banzaiMovie = 
+					new Movie("라이언 일병 구하기","전쟁",5,["3:00pm", "5:00pm", "9:00pm", 
+						"11:00pm"]);
+				alert(banzaiMovie.getNextShowing());
+				document.write("2"+"<br>");
+
+				var plan9Movie = 
+					new Movie("파이트 클럽","다크 코미디",2,["4:00pm", "6:00pm", "10:00pm"]);
+				alert(plan9Movie.getNextShowing());
+
+				document.write("3"+"<br>");
+				var forbiddenPlanetMovie = 
+					new Movie("세븐","심리 스릴러",5,["8:30pm", "11:10pm"]);
+				alert(forbiddenPlanetMovie.getNextShowing());
+				document.write("4"+"<br>");
+
+				var mirimMovie = 
+					new Movie("다크 나이트", "네오느아르", 3,["6:00pm", "8:10pm", "10:00pm", "10:10pm"]);
+				alert(mirimMovie.getNextShowing());
+				document.write("5"+"<br>"); 
+				document.write("3406_유정은"+"<br>");
+			}
+			function Movie(title, genre, rating, showtimes) {
+				document.write("6"+"<br>");
+				this.title = title; 
+				this.genre = genre;
+				this.rating = rating; 
+				this.showtimes = showtimes;
+
+				this.getNextShowing = function() {
+					var now = new Date().getTime();
+					for (var i = 0; i < this.showtimes.length; i++) {
+						document.write("7"+"<br>");
+						var showtime = getTimeFromString(this.showtimes[i]);
+						if ((showtime - now) > 0) {
+							return this.title + "의 다음 상영시간은 " 
+							+ this.showtimes[i] + "입니다";
+						}
+					}
+					return null;
+				};
+			}
+			function getTimeFromString(str) {
+				document.write("8"+"<br>");
+				var theTime = new Date();
+				var time = str.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+				theTime.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
+				theTime.setMinutes( parseInt(time[2]) || 0 );
+				return theTime.getTime();
+			}
+		</script>
+	</head>
+	<body></body>
+</html>
