@@ -74,12 +74,6 @@ function showMap(coords) {
 }
 
 
-
-
-
-
-
-
 function displayError(error) {
    var errorTypes = {
       0: "알려지지 않은 에러",
