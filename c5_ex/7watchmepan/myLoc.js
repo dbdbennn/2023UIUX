@@ -33,11 +33,12 @@ function displayLocation(position) {
 	var distance = document.getElementById("distance");
 	distance.innerHTML = "당신은 WickedlySmart HQ와 " + km + "km 떨어져 있습니다";
 
-	if (map == null) {
-		showMap(position.coords);
-	}
 //추가2	
-
+	if(map == null) {
+		showMap(position.coords);
+	}else{
+		scrollMapToPosition(position.coords);
+	}
 
 }
 
@@ -131,15 +132,16 @@ function watchLocation() {
 }
 
 //추가1
+function scrollMapToPosition(coords) {
+	var latitude = coords.latitude;
+	var longitude = coords.latitude;
 
+	var latlong = new google.maps.LatLng(latitude, longitude);
+	map.panTo(latlong);
 
-
-
-
-
-
-
-
+	addMarker(map, latlong, "Your new location", "You moved to: "+
+	latitude+ ', '+longitude);
+}
 
 
 function clearWatch() {

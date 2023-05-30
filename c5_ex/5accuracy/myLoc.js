@@ -27,7 +27,7 @@ function displayLocation(position) {
 	var div = document.getElementById("location");
 	div.innerHTML = "당신은 위도: " + latitude + ", 경도: " + longitude + "에 있습니다";
 	//추가1
-	div.innerHTML += '<br/> (' + position.coords.accuracy + 'm 정확도)';
+	div.innerHTML += '<br/>(' + position.coords.accuracy + 'm 정확도)';
 
 	var km = computeDistance(position.coords, ourCoords);
 	var distance = document.getElementById("distance");
